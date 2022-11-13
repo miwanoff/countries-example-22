@@ -32,4 +32,5 @@ $countries = array(
 $users = array(
     "user" => "user",
     "admin" => "admin",
+    "pit" => "w123"
 );

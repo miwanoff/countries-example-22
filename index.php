@@ -6,7 +6,7 @@ include "action.php";
 if (isset($_POST["go"])) {
     $login = $_POST["login"];
     $password = $_POST["pass"];
-    if (check_autorize($login)) {
+    if (check_autorize($login, $password)) {
         echo "Привет, $login!";
         if (check_admin($login, $password)) {
             echo "<a href='hello.php?login=$login'>Просмотр отчета</a>";
