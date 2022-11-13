@@ -28,7 +28,7 @@ function out_arr()
     global $countries;
     // делаем переменную $countries глобальной
     $arr_out = [];
-    $arr_out[] = "<table class='out' border='1'>";
+    $arr_out[] = "<table  class=\"table table-hover text-white-50\">";
     $arr_out[] = "<tr><td>№</td><td>Страна</td><td>Столица</td><td>Площадь</td><td>Население за 2000 год</td><td>Население за 2010 год</td><td>Среднее население</td></tr>";
     foreach ($countries as $country) {
         static $i = 1;
