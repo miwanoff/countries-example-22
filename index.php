@@ -24,3 +24,13 @@ $str_form = '<span id="massage"></span>
 <input type="submit" value="OK" name="go">
 </form>';
 echo $str_form;
+
+$out = out_arr();
+
+if (count($out) > 0) {
+    foreach ($out as $row) {
+        echo $row;
+    }
+} else {
+    echo "Нет данных...";
+}
