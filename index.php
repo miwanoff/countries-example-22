@@ -25,6 +25,32 @@ $str_form = '<span id="massage"></span>
 </form>';
 echo $str_form;
 
+// $out = out_arr();
+
+// if (count($out) > 0) {
+//     foreach ($out as $row) {
+//         echo $row;
+//     }
+// } else {
+//     echo "Нет данных...";
+// }
+
+$str_form_s = '<h3>Сортировать по:</h3>
+<form action="index.php" method="post" name="sort_form">
+<select name="sort" id="sort" size="1">
+    <option value="name">названию</option>
+    <option value="area">площади</option>
+    <option value="population">среднему населению</option>
+</select>
+<input type="submit" name="submit" value="OK">
+</form>';
+echo $str_form_s;
+
+if (isset($_POST['sort'])) {
+    $how_to_sort = $_POST['sort'];
+    sorting($how_to_sort);
+}
+
 $out = out_arr();
 
 if (count($out) > 0) {
