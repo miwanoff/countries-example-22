@@ -2,7 +2,6 @@
 include "header.php";
 include "action.php";
 
-
 if (isset($_POST["go"])) {
     $login = $_POST["login"];
     $password = $_POST["pass"];
@@ -59,4 +58,28 @@ if (count($out) > 0) {
     }
 } else {
     echo "Нет данных...";
+}
+
+$str_form_search = "<h3>Поиск:</h3>
+			<form  name='searchForm' action='index.php' method='post' onSubmit='return overify_login(this);' >
+ 			 <input type='text' name='search'>
+ 			 <input type='submit' name='gosearch' value='Подтвердить'>
+ 			 <input type='submit' name='clear' value='Сбросить'>
+ 		     </form>";
+
+echo $str_form_search;
+
+if (isset($_POST['gosearch'])) {
+    $data = test_input($_POST['search']);
+    $out = out_search($data);
+
+// вызов функции out_arr() из action.php для получения массива
+    if (count($out) > 0) {
+        foreach ($out as $row) { //вывод массива построчно
+            echo $row;
+        }
+    } else // если нет данных
+    {
+        echo "Ничего не найдено...";
+    }
 }

@@ -95,3 +95,58 @@ function sorting($p)
     global $countries;
     uasort($countries, $p);
 }
+
+function out_arr_search(array $arr_index = null)
+{
+    global $countries; // делаем переменную $countries глобальной
+    $arr_out = array();
+    $arr_out[] = "<table class='out' border='1'>";
+    $arr_out[] = "<tr><td>№</td><td>Страна</td><td>Столица</td><td>Площадь</td><td>Население за 2000 год</td><td>Население за 2010 год</td><td>Среднее население</td></tr>";
+    foreach ($countries as $index => $country) {
+        if ($arr_index != null && in_array($index, $arr_index)) {
+            static $i = 1;
+            $str = "<tr>" . "<td>" . $i . "</td>";
+            foreach ($country as $key => $value) {
+                if (!is_array($value)) {
+                    $str .= "<td>$value</td>";
+                } else {
+                    foreach ($value as $k => $v) {
+                        $str .= "<td>$v</td>";
+                    }
+                }
+            }
+            $str .= "<td>" . (array_sum($country['population']) / count($country['population'])) . "</td></tr>";
+            $arr_out[] = $str;
+            $i++;
+        }
+    }
+    $arr_out[] = "</table>";
+    return $arr_out;
+}
+
+function out_search($data)
+{
+    global $countries; // делаем переменную $countries глобальной
+    $arr_index = array();
+    foreach ($countries as $country_number => $country) {
+        foreach ($country as $key => $value) {
+            if (!is_array($value)) {
+                if (stristr($value, $data)) {
+                    $arr_index[] = $country_number;
+                }
+            } else {
+                foreach ($value as $k => $v) {
+                    if (stristr($v, $data) || strstr($k, $data)) {
+                        $arr_index[] = $country_number;
+                    }
+                }
+            }
+        }
+    }
+    return out_arr_search(array_unique($arr_index));
+}
+
+function test_input($data)
+{
+    return htmlspecialchars(stripslashes(trim($data)));
+}
