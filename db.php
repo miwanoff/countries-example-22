@@ -1,8 +1,17 @@
 <?php
 $countries = array(
     array(
-        "name" => "Англия",
-        "capital" => "Лондон",
+        "name" => "France",
+        "capital" => "Paris",
+        "area" => 640679,
+        "population" => array(
+            "2000" => 59278000,
+            "2010" => 59278000,
+        ),
+    ),
+    array(
+        "name" => "England",
+        "capital" => "London",
         "area" => 130395,
         "population" => array(
             "2000" => 58800000,
@@ -10,17 +19,8 @@ $countries = array(
         ),
     ),
     array(
-        "name" => "Франция",
-        "capital" => "Париж",
-        "area" => 640679,
-        "population" => array(
-            "2000" => 59258000,
-            "2010" => 59278000,
-        ),
-    ),
-    array(
-        "name" => "Германия",
-        "capital" => "Берлин",
+        "name" => "Deutschland",
+        "capital" => "Berlin",
         "area" => 357021,
         "population" => array(
             "2000" => 82260000,
@@ -29,8 +29,8 @@ $countries = array(
     ),
 );
 
-$users = array(
+$users = [
     "user" => "user",
     "admin" => "admin",
     "pit" => "w123"
-);
+];

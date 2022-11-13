@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Страны</title>
+    <title>Countries</title>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
-<body>
+<body class="text-white-50">
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
@@ -38,7 +38,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png" alt="">
+                            <h1 class="mb-2">Countries</h1>
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Search End ***** -->
