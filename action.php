@@ -18,10 +18,10 @@ function check_admin($log, $pas)
     return array_key_exists($log, $users) && $pas == $users["admin"];
 }
 
-// function check_log($log)
-// {
-//     return $log == "admin";
-// }
+function check_log($log)
+{
+    return $log == "admin";
+}
 
 function out_arr()
 {

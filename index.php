@@ -20,7 +20,7 @@ $str_form = '
   <form class="form-inline" action="index.php" method="post" onsubmit="return verify(this)">
     <label for="login" class="m-2">Login:</label> <input type="text" name="login" class="form-control my-2" id="login" placeholder="Enter login">
     <label for="pass" class="m-2">Password:</label> <input type="password" name="pass" id="pass" class="form-control my-2" placeholder="Enter password" >
-    <input type="submit" value="OK" name="go" class="btn btn-secondary my-2">
+    <input type="submit" value="OK" name="go" class="btn btn-secondary m-2">
   </form>
   <span id="massage"></span>
 </div>';
@@ -70,8 +70,8 @@ $str_form_search = "
   <h3>Search:</h3>
 	<form  name='searchForm' action='index.php' method='post' onSubmit='return overify_login(this);' >
  		<input type='text' name='search' class='form-control' >
- 		<input type='submit' name='gosearch' value='Confirm'  class='btn btn-secondary'>
- 		<input type='reset' name='clear' value='Reset'  class='btn btn-secondary'>
+ 		<input type='submit' name='gosearch' value='Confirm'  class='btn btn-secondary my-2'>
+ 		<input type='reset' name='clear' value='Reset'  class='btn btn-secondary my-2'>
  	</form>
 </div>";
 
