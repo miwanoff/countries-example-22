@@ -83,3 +83,5 @@ if (isset($_POST['gosearch'])) {
         echo "Ничего не найдено...";
     }
 }
+
+include "footer.php";
