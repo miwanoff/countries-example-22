@@ -34,15 +34,6 @@ if (!isset($_SESSION['authorized'])) {
 } else {
     echo '<br><a href="logout.php">logout</a>';
 }
-// $out = out_arr();
-
-// if (count($out) > 0) {
-//     foreach ($out as $row) {
-//         echo $row;
-//     }
-// } else {
-//     echo "No data...";
-// }
 
 $str_form_s = '
 <div class="container">

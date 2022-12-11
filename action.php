@@ -24,12 +24,29 @@ function check_user($log, $pas)
     return false;
 }
 
+function add_user($log, $pas)
+{
+    global $users;
+    if (!check_log($log)) {
+        $users[$log] = $pas;
+        $_SESSION['authorized'] = 1;
+        return true;
+    }
+    return false;
+}
+
 function check_admin()
 {
     return isset($_SESSION["login"]) && $_SESSION["login"] == "admin" && isset($_SESSION['authorized']);
 }
 
 function check_log($log)
+{
+    global $users;
+    return array_key_exists($log, $users);
+}
+
+function check_log_admin($log)
 {
     return $log == "admin";
 }
