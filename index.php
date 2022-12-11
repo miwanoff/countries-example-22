@@ -8,13 +8,17 @@ if (isset($_POST["go"])) {
     $_SESSION["login"] = $login;
     if (check_user($login, $password)) {
         echo "Hello, $login!";
-        if (check_admin($login)) {
-            echo "<a href='hello.php?login=$login'>Viewing a Report</a>";
-        }
+
     } else {
         echo "You are not registred!";
     }
+
 }
+
+if (check_admin()) {
+    echo "<a href='hello.php?login={$_SESSION["login"]}'>Viewing a Report</a>";
+}
+
 if (!isset($_SESSION['authorized'])) {
     $str_form = '
 <div class="container">

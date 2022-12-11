@@ -3,9 +3,10 @@ ob_start();
 include "header.php";
 include "action.php";
 echo "\n<h2>Secret information</h2>\n";
-if (isset($_GET['login']) && $_GET['login'] != "") {
-    $admin = $_GET['login'];
-    if (check_log("admin") == true) {
+
+if (isset($_SESSION['authorized']) && $_GET["login"] == "admin") {
+    $admin = $_GET["login"];
+    if (check_log($admin) == true) {
         echo "<p>Hello, $admin</p>";
         echo "<p>Weather</p>";
     }

@@ -24,9 +24,9 @@ function check_user($log, $pas)
     return false;
 }
 
-function check_admin($log)
+function check_admin()
 {
-    return $log = "admin" && isset($_SESSION['authorized']);
+    return isset($_SESSION["login"]) && $_SESSION["login"] == "admin" && isset($_SESSION['authorized']);
 }
 
 function check_log($log)
