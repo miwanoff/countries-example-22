@@ -1,10 +1,11 @@
 <?php
-include "header.php";
 include "action.php";
+include "header.php";
 
 if (isset($_POST["go"])) {
     $login = $_POST["login"];
     $password = $_POST["pass"];
+    $_SESSION["login"] = $login;
     if (check_user($login, $password)) {
         echo "Hello, $login!";
         if (check_admin($login)) {
@@ -14,7 +15,8 @@ if (isset($_POST["go"])) {
         echo "You are not registred!";
     }
 }
-$str_form = '
+if (!isset($_SESSION['authorized'])) {
+    $str_form = '
 <div class="container">
   <h3 class= "my-2">Sign in:</h3>
   <form class="form-inline" action="index.php" method="post" onsubmit="return verify(this)">
@@ -24,8 +26,10 @@ $str_form = '
   </form>
   <span id="massage"></span>
 </div>';
-echo $str_form;
-
+    echo $str_form;
+} else {
+    echo '<br><a href="logout.php">logout</a>';
+}
 // $out = out_arr();
 
 // if (count($out) > 0) {
