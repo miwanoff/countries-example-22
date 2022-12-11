@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "db.php";
 
 // function check_autorize($log)
@@ -7,9 +8,20 @@ include "db.php";
 //     return array_key_exists($log, $users);
 // }
 
-function check_autorize($log, $pas) {
+function check_autorize($log, $pas)
+{
     global $users;
     return array_key_exists($log, $users) && $pas == $users[$log];
+}
+
+function check_user($log, $pas)
+{
+    global $users;
+    if (array_key_exists($log, $users) && $pas == $users[$log]) {
+        $_SESSION['authorized'] = 1;
+        return true;
+    }
+    return false;
 }
 
 function check_admin($log, $pas)
