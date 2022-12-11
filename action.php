@@ -10,13 +10,15 @@ include "db.php";
 
 function check_autorize($log, $pas)
 {
-    global $users;
+    //global $users;
+    $users = get_users();
     return array_key_exists($log, $users) && $pas == $users[$log];
 }
 
 function check_user($log, $pas)
 {
-    global $users;
+    //global $users;
+    $users = get_users();
     if (array_key_exists($log, $users) && $pas == $users[$log]) {
         $_SESSION['authorized'] = 1;
         return true;
@@ -26,13 +28,37 @@ function check_user($log, $pas)
 
 function add_user($log, $pas)
 {
-    global $users;
+    //global $users;
+    $users = get_users();
     if (!check_log($log)) {
         $users[$log] = $pas;
         $_SESSION['authorized'] = 1;
+        update_user($users);
         return true;
     }
     return false;
+}
+
+function update_user($users)
+{
+    //$users = get_users();
+    $su = serialize($users);
+    $file = fopen("db.txt", "w");
+    if (fwrite($file, $su)) {
+        fclose($file);
+        return true;
+    }
+    fclose($file);
+    return false;
+}
+
+function get_users()
+{
+    $fname = "db.txt";
+    $file = fopen($fname, "r");
+    $users = fread($file, filesize($fname));
+    fclose($file);
+    return unserialize($users);
 }
 
 function check_admin()
@@ -42,7 +68,8 @@ function check_admin()
 
 function check_log($log)
 {
-    global $users;
+    // global $users;
+    $users = get_users();
     return array_key_exists($log, $users);
 }
 
