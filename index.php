@@ -7,7 +7,7 @@ if (isset($_POST["go"])) {
     $password = $_POST["pass"];
     if (check_user($login, $password)) {
         echo "Hello, $login!";
-        if (check_admin($login, $password)) {
+        if (check_admin($login)) {
             echo "<a href='hello.php?login=$login'>Viewing a Report</a>";
         }
     } else {

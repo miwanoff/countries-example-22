@@ -24,10 +24,9 @@ function check_user($log, $pas)
     return false;
 }
 
-function check_admin($log, $pas)
+function check_admin($log)
 {
-    global $users;
-    return array_key_exists($log, $users) && $pas == $users["admin"];
+    return $log = "admin" && isset($_SESSION['authorized']);
 }
 
 function check_log($log)
